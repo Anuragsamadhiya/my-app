@@ -40,7 +40,7 @@ const handleonchange=(event)=>{
   return (
     <>
     <div className="container"  style={{color:props.mode==='light'?'black':'white'}}>
-        <h1>{props.heading}</h1>
+        <h1 className='my-3'>{props.heading}</h1>
       <div className="form">
       {/* <label for="mybox"></label> */}
   <textarea className="form-control"  value={text} rows={8} onChange={handleonchange} style={{
@@ -49,11 +49,11 @@ const handleonchange=(event)=>{
   }}></textarea>
 </div>
 {/* btn btn-primary mx-3 my-2 --> bootstrap classes*/}
-<button className='btn btn-primary' onClick={handleupclick} > convert to uppercase</button>
-<button className='btn btn-primary mx-3 my-2' onClick={handleloclick} > convert to lowercase</button>
-<button className='btn btn-primary mx-3 my-2' onClick={handlebackspaceclick} >Backspace</button>
-<button className='btn btn-primary mx-3 my-2' onClick={speak} >convert to voice</button>
-<button className='btn btn-primary mx-3 my-2' onClick={clear} >clear</button>
+<button className='btn btn-primary mx-3 my-2'  disabled={text.length==0} onClick={handleupclick} > convert to uppercase</button>
+<button className='btn btn-primary mx-3 my-2' disabled={text.length==0} onClick={handleloclick} > convert to lowercase</button>
+<button className='btn btn-primary mx-3 my-2' disabled={text.length==0} onClick={handlebackspaceclick} >Backspace</button>
+<button className='btn btn-primary mx-3 my-2' disabled={text.length==0} onClick={speak} >convert to voice</button>
+<button className='btn btn-primary mx-3 my-2' disabled={text.length==0} onClick={clear} >clear</button>
 
 
 
@@ -62,7 +62,7 @@ const handleonchange=(event)=>{
     <div className="container my-3" style={{color:props.mode==='light'?'black':'white'}}>
       <h1> Your Text Summary</h1>
       {/* length of the text ... my-3 is bootstrap class container also */}
-      <p>{text.split(' ').length-1} text {text.length} words</p> 
+      <p>{text.split(" ").filter((element)=>{return element.length!==0}).length} text {text.length} words</p> 
       <h2>preview</h2>
       <p>{text}</p>
     </div>

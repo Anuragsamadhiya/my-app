@@ -2,13 +2,13 @@
 import './App.css';
 import Navbar from './components/Navbar';
 import Textform from './components/Textform';
-// import AboutUs from './components/AboutUs';
+import AboutUs from './components/AboutUs';
 import { useState } from "react";
 import Alert from './components/Alert';
 // import ReactDOM from 'react-dom/client';
 
 // import { BrowserRouter, Route, Routes } from "react-router-dom";
-// import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 // import {
 //   BrowserRouter,
 //   Routes,
@@ -50,27 +50,27 @@ type:type
 
   {/* <Navbar /> */} {/* //it is for default props */}
   {/* router is used for single page switching */}
-  {/* <BrowserRouter>   */}
+  <BrowserRouter>  
 <Navbar tittle= "AnuragApp" about="New About" mode={mode} togglemode={toggle}/>
 <Alert alerts={alert}/>
 {/* bootstrap ki class hai container*/}
 <div className="container"> 
 
 {/* Syntax of routers */}
-{/* <Routes> */}
+<Routes>
   {/* path is same as to in navbar.js */}
-            {/* <Route exact path="/about" element={<AboutUs/>}></Route> */}
-            {/* <Route
+            <Route exact path="/about" element={<AboutUs mode={mode}/>}></Route>
+            <Route
               exact path="/"
               element={
-               
+                <Textform showalert={showalert} heading="Textutils- Word count,Character Count, Convert Text to Voice" mode={mode}/>
+
               }
             ></Route>
           </Routes>
+          </div>
+</BrowserRouter>
       
-</BrowserRouter> */}
- <Textform showAlert={showalert} heading="Enter Text to analyze " mode={mode}/>
-      </div>
 
  </>
   );
